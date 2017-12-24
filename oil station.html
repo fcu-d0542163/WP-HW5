@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Custom Markers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 14,
+          center: new google.maps.LatLng(24.176741, 120.637665),
+          mapTypeId: 'roadmap'
+        });
+
+        var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+
+        var icons = {
+          parking: {
+            icon: iconBase + 'parking_lot_maps.png'
+          },
+          library: {
+            icon: iconBase + 'library_maps.png'
+          },
+          info: {
+            icon: iconBase + 'info-i_maps.png'
+          }
+        };
+
+        var features = [
+          {
+            position: new google.maps.LatLng(24.175272, 120.649145),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(24.176741, 120.637665),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(24.183433, 120.618626),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(24.164669, 120.654197),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(24.156545, 120.652873),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(24.183962, 120.604835),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(24.169489, 120.606557),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(24.190480, 120.612213),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(24.179057, 120.601632),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(24.177543, 120.669712),
+            type: 'parking'
+          },
+		  //////////////////////////////////////////////////////////////////////////////////
+		  {
+            position: new google.maps.LatLng(24.183106, 120.614576),//台灣中油台中工業區站
+            type: 'library'
+          }, {
+            position: new google.maps.LatLng(24.171330, 120.643929),//台灣中油 青海站
+            type: 'library'
+          }, {
+            position: new google.maps.LatLng(24.200718, 120.656973),//台灣中油恩光中清交流道站
+            type: 'library'
+          }, {
+            position: new google.maps.LatLng(24.171494, 120.659823),//台灣中油文華站
+            type: 'library'
+          }, {
+            position: new google.maps.LatLng(24.172087, 120.645467),//台灣中油河南路站
+            type: 'library'
+          }, {
+            position: new google.maps.LatLng(24.183754, 120.629852),//福懋加油站
+            type: 'library'
+          }, {
+            position: new google.maps.LatLng(24.179374, 120.634386),//台塑石油環中站
+            type: 'library'
+          }, {
+            position: new google.maps.LatLng(24.205775, 120.629008),//台灣中油
+            type: 'library'
+          }, {
+            position: new google.maps.LatLng(24.162467, 120.628173),//台灣中油 安祥站
+            type: 'library'
+          }, {
+            position: new google.maps.LatLng(24.202122, 120.654425),//台灣中油中清站
+            type: 'library'
+          }
+		  
+		  
+        ];
+
+        // Create markers.
+        features.forEach(function(feature) {
+          var marker = new google.maps.Marker({
+            position: feature.position,
+            icon: icons[feature.type].icon,
+            map: map
+          });
+        });
+      }
+	  
+	  
+	  
+	  
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRTu7TTGelaxXZD5ee1FZm3bws6iyokKA&callback=initMap">
+    </script>
+  </body>
+</html>
